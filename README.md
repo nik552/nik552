@@ -1,5 +1,8 @@
 <div align="center">
   <h1><b>Hi, I'm Nikabou 👋</b></h1>
+   <a href="https://github.com/Nikabou">
+    <img align="right" src="https://komarev.com/ghpvc/?username=Nikabou&label=Visitors&color=0e75b6&style=flat-square" alt="visitor badge"/>
+  </a>
   <h3>🛠️ Tech Stack</h3>
 </div>
 <br/>
