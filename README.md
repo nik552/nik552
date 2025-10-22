@@ -1,2 +1,2 @@
 # Hi, I'm Nikabou 👋 
-🛠️ Tech Stack<br/>
+<div align="center">🛠️ Tech Stack<div/><br/>
