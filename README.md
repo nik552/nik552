@@ -1,6 +1,5 @@
 <div align="center">
   <h1><b>Hi, I'm Nikabou 👋</b></h1>
-  <hr/>
   <h2>🛠️ Tech Stack</h2>
 </div>
 
