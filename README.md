@@ -20,5 +20,3 @@
 
 </div>
 
-> 🧠 Auto-generated with [Platane/snk](https://github.com/Platane/snk)
-
