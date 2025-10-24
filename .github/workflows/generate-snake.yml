@@ -1,12 +1,12 @@
-name: Generate Snake (Dark + Light, synced final bar)
+name: Generate Snake (Dark + Light)
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Génération quotidienne
-  workflow_dispatch:
+    - cron: "0 0 * * *"  # Génération quotidienne à minuit UTC
+  workflow_dispatch:      # Permet un lancement manuel
 
 permissions:
-  contents: write
+  contents: write  # Nécessaire pour push sur main
 
 jobs:
   build:
@@ -24,18 +24,10 @@ jobs:
             dist/github-contribution-grid-snake.svg?palette=github-light&color_snake=#FF0000
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#F3BA2F
 
-      - name: Update final progress bar color for light mode
-        run: |
-          sed -i 's/fill:#000000/fill:#FF0000/g' dist/github-contribution-grid-snake.svg
-
-      - name: Update final progress bar color for dark mode
-        run: |
-          sed -i 's/fill:#FFFFFF/fill:#F3BA2F/g' dist/github-contribution-grid-snake-dark.svg
-
       - name: Commit generated Snake
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add dist/*.svg
-          git commit -m "chore: update dark+light snake with synced final bar" || echo "No changes to commit"
+          git commit -m "chore: update dark+light snake colors" || echo "No changes to commit"
           git push origin main
