@@ -20,4 +20,5 @@
 
 </div>
 
+![My GitHub Metrics](https://raw.githubusercontent.com/nik552/nik552/main/metrics.svg)
 
