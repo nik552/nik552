@@ -3,23 +3,27 @@ name: Generate Snake
 on:
   schedule:
     - cron: "0 0 * * *"  # Génère chaque jour
-  workflow_dispatch:     # Permet de le lancer manuellement
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate Snake Animation
         uses: Platane/snk@v3
         with:
           github_user_name: nik552
-          outputs: dist/snake.svg
+          outputs: |
+            dist/snake.svg
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.3
+      - name: Push Snake to output branch
+        uses: crazy-max/ghaction-github-pages@v4
         with:
-          branch: output
-          folder: dist
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
