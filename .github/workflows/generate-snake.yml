@@ -1,12 +1,12 @@
-name: Generate Snake (Dark + Light)
+name: Generate Snake (Dark + Light, synced colors)
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Génération quotidienne à minuit UTC
-  workflow_dispatch:      # Permet un lancement manuel
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 permissions:
-  contents: write  # Nécessaire pour push sur main
+  contents: write
 
 jobs:
   build:
@@ -21,13 +21,13 @@ jobs:
         with:
           github_user_name: nik552
           outputs: |
-            dist/github-contribution-grid-snake.svg?palette=github-light&color_snake=#FF0000
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#F3BA2F
+            dist/github-contribution-grid-snake.svg?palette=github-light&color_snake=#FF0000&color_dots=#FF0000
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#F3BA2F&color_dots=#F3BA2F
 
       - name: Commit generated Snake
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add dist/*.svg
-          git commit -m "chore: update dark+light snake colors" || echo "No changes to commit"
+          git commit -m "chore: update dark+light snake synced colors" || echo "No changes to commit"
           git push origin main
